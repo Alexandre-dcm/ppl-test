@@ -34,7 +34,6 @@ export class Quarantine {
     }
 
     public report(): PatientsRegister {
-
     }
 
         // Aspirin cures Fever;
