@@ -24,11 +24,11 @@ export class DrugsHandler {
     private badMixes: BadMix[] = [
         {
             functionName: 'paracetamolAndAspirin',
-            drugs: ['As', 'P'],
+            drugs: [DrugsHandler.drugsMap.Aspirin, DrugsHandler.drugsMap.Paracetamol],
         },
         {
             functionName: 'insulinAndAntibiotic',
-            drugs: ['I', 'An']
+            drugs: [DrugsHandler.drugsMap.Insulin, DrugsHandler.drugsMap.Antibiotic]
         }
     ];
 
