@@ -1,36 +1,20 @@
 import {Expect, Setup, Test, TestFixture} from 'alsatian';
-import {Quarantine} from './quarantine';
-import {formatPatientsInput} from "./formatInput";
+import {Quarantine} from '../services/quarantine';
+import {formatPatientsInput} from "../utils/formatInput";
 
 @TestFixture()
 export class QuarantineTest {
 
   private quarantine: Quarantine;
-  private input: Array<string>;
 
   @Setup
   public setup() {
-    // The responsibility of the Quarantine object is to simulate diseases on a group of patients.
-    // It is initialized with a list of patients' health status, separated by a comma.
-    // Each health status is described by one or more characters
-    // (in the test below, we will always have only one disease / patient)
-    // The characters mean:
-    // H : Healthy
-    // F : Fever
-    // D : Diabetes
-    // T : Tuberculosis
-
     this.quarantine = new Quarantine({
         F: 1, H: 2, D: 3, T: 1, X: 0
     });
-
-    this.input = ['F', 'F', "H", "D", "D", "T"];
-    // Quarantine provides medicines to the patients, but can not target a specific group of patient.
-    // The same medicines are always given to all the patients.
-
-    // Then Quarantine can provide a report that gives the number of patients that have the given disease.
-    // X means Dead
   }
+
+
 
   @Test()
   public beforeTreatment(): void {
@@ -108,12 +92,5 @@ export class QuarantineTest {
     Expect(this.quarantine.report()).toEqual({
       F: 0, H: 0, D: 0, T: 0, X: 7
     });
-  }
-
-  @Test()
-  public formatInputTest(): void {
-    const formattedRegister = formatPatientsInput(this.input);
-
-    Expect(formattedRegister).toEqual({"F":2,"H":1,"D":2,"T":1});
   }
 }

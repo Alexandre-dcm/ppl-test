@@ -1,14 +1,14 @@
-import { PatientsRegister } from "./patientsRegister";
+import { PatientsRegister } from "../types/patientsRegister";
 
 export function formatPatientsInput(patientTypes: Array<string>): PatientsRegister {
     const register = {} as PatientsRegister;
     
-    patientTypes.forEach(type => {        
-        if (register[type] === 1) {
-            register[type]++;
-        } else {
+    patientTypes.forEach(type => {
+        if (!register[type]) {
             register[type] = 1;
-        }        
+        } else {
+            register[type]++;
+        }
     })
  
     return register;
