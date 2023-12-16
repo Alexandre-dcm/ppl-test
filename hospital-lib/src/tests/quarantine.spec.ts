@@ -14,16 +14,6 @@ export class QuarantineTest {
     });
   }
 
-
-
-  @Test()
-  public beforeTreatment(): void {
-    // diabetics die without insulin
-    Expect(this.quarantine.report()).toEqual({
-      F: 1, H: 2, D: 3, T: 1, X: 0
-    });
-  }
-
   @Test()
   public noTreatment(): void {
     this.quarantine.wait40Days();
@@ -78,7 +68,7 @@ export class QuarantineTest {
   public paracetamol(): void {
     this.quarantine.setDrugs(['P']);
     this.quarantine.wait40Days();
-    // paracetamol heals fever
+    // paracetamol heals fever, diabetics die
     Expect(this.quarantine.report()).toEqual({
       F: 0, H: 3, D: 0, T: 1, X: 3
     });
@@ -91,6 +81,28 @@ export class QuarantineTest {
     // paracetamol kills subject if mixed with aspirin
     Expect(this.quarantine.report()).toEqual({
       F: 0, H: 0, D: 0, T: 0, X: 7
+    });
+  }
+
+  @Test()
+  public antibioticInsulinAndParacetamol(): void {
+    this.quarantine.setDrugs(['I', 'An', 'P']);
+    this.quarantine.wait40Days();
+    // Antibiotic and insulin make healthy people catch fever,
+    // but they are not cured by paracetamol afterwise. 
+    // Patient with tuberculosis are cured.
+    Expect(this.quarantine.report()).toEqual({
+      F: 2, H: 2, D: 3, T: 0, X: 0
+    });
+  }
+
+  @Test()
+  public insulinAndParacetamol(): void {
+    this.quarantine.setDrugs(['I', 'P']);
+    this.quarantine.wait40Days();
+    // Paracetamol heals fever, diabetics don't die
+    Expect(this.quarantine.report()).toEqual({
+      F: 0, H: 3, D: 3, T: 1, X: 0
     });
   }
 }

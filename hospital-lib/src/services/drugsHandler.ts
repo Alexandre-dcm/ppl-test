@@ -71,6 +71,13 @@ export class DrugsHandler {
         this.switchState(DrugsHandler.states.Fever, DrugsHandler.states.Healthy);
     }
 
+    private checkInsulin(): void {
+        // Diabetic patients die if no insuline is given
+        if (!this.drugs.includes(DrugsHandler.drugsMap.Insulin)) {                        
+            this.switchState(DrugsHandler.states.Diabetes, DrugsHandler.states.Dead);
+        }
+    }
+
     /** Bad mixes */
     private checkBadMixes(): void {
         this.badMixes.forEach(badMix => {
@@ -96,13 +103,6 @@ export class DrugsHandler {
     }
 
     /** Others */
-    private checkInsulin(): void {
-        // Diabetic patients die if no insuline is given
-        if (!this.drugs.includes(DrugsHandler.drugsMap.Insulin)) {                        
-            this.switchState(DrugsHandler.states.Diabetes, DrugsHandler.states.Dead);
-        }
-    }
-
     private switchState(oldState: string, newState: string): void {
         let forceNumber: number;
 
