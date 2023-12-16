@@ -105,4 +105,14 @@ export class QuarantineTest {
       F: 0, H: 3, D: 3, T: 1, X: 0
     });
   }
+
+  @Test()
+  public paracetamolAndEmptyString(): void {
+    this.quarantine.setDrugs(['P', '']);
+    this.quarantine.wait40Days();
+    // Paracetamol heals fever, diabetics die
+    Expect(this.quarantine.report()).toEqual({
+      F: 0, H: 3, D: 0, T: 1, X: 3
+    });
+  }
 }

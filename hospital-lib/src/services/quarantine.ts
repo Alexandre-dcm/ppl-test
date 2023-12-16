@@ -15,7 +15,7 @@ export class Quarantine {
     }
 
     public wait40Days(): void {
-        const drugsHandler = new DrugsHandler(this.drugs, this.patients);
+        const drugsHandler: DrugsHandler = new DrugsHandler(this.drugs, this.patients);
         this.patients = drugsHandler.applyEffects();
     }
 

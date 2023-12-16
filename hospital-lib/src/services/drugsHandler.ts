@@ -92,6 +92,7 @@ export class DrugsHandler {
     }
 
     private insulinAndAntibiotic(): void {
+        // Healthy people catch fever
         this.switchState(DrugsHandler.states.Healthy, DrugsHandler.states.Fever);
     }
 
