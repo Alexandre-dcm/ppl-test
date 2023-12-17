@@ -1,5 +1,11 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
+import TopBar from './components/TopBar.vue'
+import {Quarantine} from 'hospital-lib'
+
+
+console.log(Quarantine);
+
 </script>
 
 <template>
@@ -9,6 +15,7 @@ import { RouterLink, RouterView } from 'vue-router'
         <RouterLink to="/">Home</RouterLink>
       </nav>
     </div>
+    <TopBar />
   </header>
 
   <RouterView />
