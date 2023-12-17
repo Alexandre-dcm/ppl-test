@@ -15,6 +15,14 @@ export class QuarantineTest {
   }
 
   @Test()
+  public beforeTreatment(): void {
+    // diabetics die without insulin
+    Expect(this.quarantine.report()).toEqual({
+      F: 1, H: 2, D: 3, T: 1, X: 0
+    });
+  }
+
+  @Test()
   public noTreatment(): void {
     this.quarantine.wait40Days();
     // diabetics die without insulin
