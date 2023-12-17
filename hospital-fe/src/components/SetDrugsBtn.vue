@@ -21,11 +21,13 @@
     }
 
     const pushToHistory = (patients, drugs, report) => {
-        const existingHistory = JSON.parse(localStorage.getItem(consts.localStorage.history));
-
+        let existingHistory = JSON.parse(localStorage.getItem(consts.localStorage.history));
         let history = { patients, drugs, report }
 
         if (existingHistory) {
+            if (existingHistory.length === 10) { // Only keeping 10 last
+                existingHistory = existingHistory.slice(1);
+            }
             existingHistory.push(history);
             history = existingHistory;
         } else {
