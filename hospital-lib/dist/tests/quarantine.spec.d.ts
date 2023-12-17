@@ -1,6 +1,7 @@
 export declare class QuarantineTest {
     private quarantine;
     setup(): void;
+    beforeTreatment(): void;
     noTreatment(): void;
     aspirin(): void;
     antibiotic(): void;

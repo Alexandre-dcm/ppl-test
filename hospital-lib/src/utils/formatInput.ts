@@ -1,7 +1,14 @@
 import { PatientsRegister } from "../types/patientsRegister";
+import { DrugsHandler } from "../services/drugsHandler";
 
+// This formats the input coming from the server to a proper PatientsRegister 
 export function formatPatientsInput(patientTypes: Array<string>): PatientsRegister {
     const register = {} as PatientsRegister;
+
+    // Initializing an empty Patients register with all values to 0
+    for (const [name, shortName] of Object.entries(DrugsHandler.states)) {
+        register[shortName] = 0;
+    }
     
     patientTypes.forEach(type => {
         if (!register[type]) {
