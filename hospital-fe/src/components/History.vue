@@ -1,6 +1,7 @@
 <script setup>
     import OutputScreen from './OutputScreen.vue'
     import SetDrugsBtn from './SetDrugsBtn.vue';
+    import ActionBtn from './ActionBtn.vue';
     import { ref, onMounted } from 'vue'
     import {processPatientsData, processDrugsData} from '../utils/utils'
     import consts from '@/consts/consts'
@@ -60,7 +61,10 @@
       return result;
     }
 
-
+    const clearHistory = () => {
+      history.value = [];
+      localStorage.removeItem(consts.localStorage.history, []);
+    }
 </script>
 
 <template>
@@ -71,9 +75,18 @@
                 <OutputScreen v-bind:data="history" v-bind:size="'big'"></OutputScreen>
             </div>
         </div>
-        <SetDrugsBtn :label="'Start simulation'" :injectData="injectData"></SetDrugsBtn>
+        <div class="output-display-btns">
+          <SetDrugsBtn :label="'Start simulation'" :injectData="injectData"></SetDrugsBtn>
+          <ActionBtn :label="'Clear history'" :action="clearHistory" :use="'clearHistory'"></ActionBtn>
+        </div>
   </div>
 </template>
 
 <style scoped>
+.output-display-btns {
+  display: flex;
+  justify-content: space-between;
+}
+
+
 </style>

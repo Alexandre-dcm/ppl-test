@@ -35,6 +35,11 @@ import History from '../components/History.vue'
 
   .display-data-container {
     width: 50%;
+    min-height: 100%;
+  }
+
+  .history-container {
+    width: 50%;
   }
 
   .home-title-container h1 {

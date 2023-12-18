@@ -21,6 +21,9 @@ import { ref } from 'vue'
   
 
 <style scoped>
+    .output-display-screen {
+      margin: 1rem;
+    }
     .screen-content {
       display: flex;
       flex-direction: column;

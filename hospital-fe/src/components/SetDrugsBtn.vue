@@ -1,6 +1,7 @@
 <script setup>
     import {Quarantine} from 'hospital-lib'
     import consts from '@/consts/consts'
+    import ActionBtn from './ActionBtn.vue';
 
     const props = defineProps({
         label: String,
@@ -41,11 +42,8 @@
 </script>
 
 <template>
-  <div class="button-wrapper">
-    <button @click="setDrugs">{{ label }}</button>
-  </div>
+    <ActionBtn :action="setDrugs" :label="label" :use="'setDrugs'"></ActionBtn>
 </template>
 
 <style scoped>
-
 </style>

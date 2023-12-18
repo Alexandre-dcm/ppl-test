@@ -2,6 +2,7 @@
     import ApiService from '@/services/apiService.js'
     import {formatPatientsInput} from 'hospital-lib'
     import consts from '@/consts/consts'
+    import ActionBtn from './ActionBtn.vue';
 
     const props = defineProps({
         label: String,
@@ -34,7 +35,7 @@
 
 <template>
   <div class="button-wrapper">
-    <button @click="getData">{{ label }}</button>
+    <ActionBtn :action="getData" :label="label" :use="'fetchData'"></ActionBtn>
   </div>
 </template>
 

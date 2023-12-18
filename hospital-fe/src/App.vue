@@ -17,7 +17,7 @@ import {Quarantine} from 'hospital-lib'
 
 <style scoped>
   #app-container {
-    min-width: 50%;
+    min-width: 60%;
     padding: 2rem;
     height: 100vh;
     background-color: white;
