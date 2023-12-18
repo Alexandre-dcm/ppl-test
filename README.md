@@ -13,6 +13,8 @@ Make sur you have yarn installed\
 
 Open new terminal
 
+**Warning : Nvm sometimes switch version of node between folders**: Make sure you're still at version 18
+
 ### Link hospital-lib to Vue app
 ```cd hospital-lib```\
 ```yarn link```
@@ -21,7 +23,7 @@ Open new terminal
 ```cd hospital-fe```\
 ```yarn install``` or ```npm install``` if you encounter problems\
 ```yarn link hospital-lib```\
-```yarn dev```y
+```yarn dev```
 
 #### App now runs on localhost:5173 !
 
