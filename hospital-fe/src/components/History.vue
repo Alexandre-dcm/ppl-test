@@ -71,7 +71,7 @@
 <template>
   <div class="output-display-wrapper">
         <div class="output-display-screen-wrapper history-screen">
-            <h2>Output</h2>
+            <h2>Output (Last 10 simulations)</h2>
             <div class="output-display-screen">
                 <OutputScreen v-bind:data="history" v-bind:size="'big'"></OutputScreen>
             </div>

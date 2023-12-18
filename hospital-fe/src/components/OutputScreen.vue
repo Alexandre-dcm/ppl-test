@@ -14,7 +14,9 @@ import { ref, watch } from 'vue'
       scrollableDivs.forEach(div => {
         
         console.log('Scrolling down..', div.scrollHeight);
-        div.scrollTop = div.scrollHeight;
+        setTimeout(() => {
+          div.scrollTop = div.scrollHeight;
+        }, 10)
       }),
       { immediate: true }
     });
@@ -60,9 +62,12 @@ import { ref, watch } from 'vue'
       min-height: 100px;
       background-color: white;
     }
+    .output-display-screen.big-size .screen-line:first-child {
+      margin-top: auto;
+    }
 
     .output-display-screen .screen-content {
-    max-height: 500px;
+    height: 100%;
     overflow-y: scroll;
   }
 </style>

@@ -34,4 +34,16 @@ console.log(`
   header {
     width: 100%;
   }
+
+  @media only screen and (max-width: 2000px) {
+    #app-container {
+      min-width: 75%;
+    }
+  }
+
+  @media only screen and (max-width: 1600px) {
+    #app-container {
+      min-width: 90%;
+    }
+  }
 </style>
