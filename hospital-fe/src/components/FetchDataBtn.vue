@@ -4,7 +4,8 @@
     import consts from '@/consts/consts'
 
     const props = defineProps({
-        label: String
+        label: String,
+        injectData: Function
     })
 
     let patientsData = [];
@@ -19,6 +20,11 @@
         
         localStorage.setItem(consts.localStorage.patientsKey, JSON.stringify(patientsData));
         localStorage.setItem(consts.localStorage.drugsKey, drugsData.toString());
+
+        props.injectData({
+          patientsData,
+          drugsData,
+        });
     }
 
     const callApi = async (path) => {

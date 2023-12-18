@@ -3,7 +3,8 @@
     import consts from '@/consts/consts'
 
     const props = defineProps({
-        label: String
+        label: String,
+        injectData: Function
     })
 
     const setDrugs = () => {
@@ -35,6 +36,7 @@
         }
 
         localStorage.setItem(consts.localStorage.history, JSON.stringify(history));
+        props.injectData(JSON.stringify(history));
     }
 </script>
 
