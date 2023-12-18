@@ -7,19 +7,20 @@ import History from '../components/History.vue'
 <template>
   <main>
     <div class="home-title-container">
-      <div class="line left"></div>
+      <div class="line line-left"></div>
       <h1>Dashboard</h1>
-      <div class="line right"></div>
+      <div class="line line-right"></div>
     </div>
     <div class="simulation-container">
-      <div class="display-data-container">
+      <div class="simulation-container-item display-data-container">
         <DisplayData></DisplayData>
       </div>
-      <div class="history-container">
+      <div class="simulation-container-item history-container">
         <History></History>
       </div>
     </div>
   </main>
+  <hr>
 </template>
 
 <style scoped>
@@ -27,6 +28,18 @@ import History from '../components/History.vue'
     display: flex;
     justify-content: space-between;
     margin: 3rem 0;
+  }
+
+  .simulation-container h2{
+    font-weight: bold;
+  }
+
+  .simulation-container-item {
+    padding: 0.9rem;
+    border: 1px solid rgb(240, 240, 240);
+    border-radius: 9px;
+    box-shadow: 3px 3px 8px rgb(0, 0, 0, 0.1);
+    margin: 0 0.5rem;
   }
 
   .home-title-container {
@@ -51,16 +64,19 @@ import History from '../components/History.vue'
   .line {
     width: 30%;
     height: 1px;
-    background-color: lightgrey; /* Couleur de la ligne */
+    background-color: lightgrey;
     top: 25px;
     position: absolute
   }
 
-  .line.left {
-    left: 90px;
+  .line.line-left {
+    left: 50px;
   }
 
-  .line.right {
-    right: 90px;
+  .line.line-right {
+    right: 50px;
   }
+
+  hr {
+    border-top: 1px solid lightgrey;  }
 </style>

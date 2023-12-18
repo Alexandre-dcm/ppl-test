@@ -51,8 +51,9 @@
       for (const history of histories) {  
         let line = '';
 
-        for (const [key, value] of Object.entries(history)) {
-          line += `<span class="history-${key}">${key.toUpperCase()} : </span><span class="history-${key}-content">${value}</span><br>`
+        for (let [key, value] of Object.entries(history)) {
+          value = value.toString().replaceAll(',', ', ') ;
+          line += `<span style="font-weight: bold;">${key.toUpperCase()} : </span><span class="history-${key}-content">${value}</span><br>`
         }
 
         result.push(line);
@@ -83,10 +84,12 @@
 </template>
 
 <style scoped>
-.output-display-btns {
-  display: flex;
-  justify-content: space-between;
-}
+  .output-display-btns {
+    display: flex;
+    justify-content: space-between;
+  }
 
-
+  .output-display-screen-wrapper h2 {
+        font-weight: bold;
+      }
 </style>
