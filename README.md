@@ -7,7 +7,7 @@ Make sur you have yarn installed\
 ```npm install -g yarn```
 
 ### Initialize hospital server
-```cdyy```\
+```cd hospital-be```\
 ```yarn install```\
 ```yarn start```
 
