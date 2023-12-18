@@ -7,7 +7,7 @@ Make sur you have yarn installed\
 ```npm install -g yarn```
 
 ### Initialize hospital server
-```cd hospital-be```\
+```cdyy```\
 ```yarn install```\
 ```yarn start```
 
@@ -19,9 +19,9 @@ Open new terminal
 
 ### Initialize vue app
 ```cd hospital-fe```\
-```yarn install```\
+```yarn install``` or ```npm install``` if you encounter problems\
 ```yarn link hospital-lib```\
-```yarn dev```
+```yarn dev```y
 
 #### App now runs on localhost:5173 !
 
