@@ -1,7 +1,7 @@
 export default {
-    localStorage: {
-        patientsKey: 'easycure-patients',
-        drugsKey: 'easycure-drugs',
-        history: 'easycure-history'
-    }
+  localStorage: {
+    patientsKey: 'easycure-patients',
+    drugsKey: 'easycure-drugs',
+    history: 'easycure-history'
+  }
 }
